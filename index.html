@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button onclick="adicionarNumero()">
+        adicionar
+    </button>
+    <button>
+        remover
+    </button>
+    <button>
+        procurar
+    </button> <br>
+
+    <ul id="lista">
+
+    </ul>
+
+
+    <script>
+        const valorInput = document.getElementById('input')
+        const listaValores = document.getElementById('lista')
+        
+        function adicionarNumero() {
+            debugger
+            if(valorInput.value != '') {
+                valorInput.style.borderColor = 'black'
+                const listItem = document.createElement('li')
+                listItem.innerText = valorInput.value
+                listaValores.appendChild(listItem)
+                valorInput.value = ''
+            } else {
+                valorInput.style.borderColor = 'red'
+                alert('preencha o campo')
+            }
+        }
+
+        function removerNumero() {
+
+        }
+
+        function procurarNumero() {
+            const itens = listaValores.children
+            // olhar todos os li que tem dentro da lista - forEach
+            // a cada interação do foreach eu preciso olhar o texto do meu li
+            // e verificar se é igual ao valor digitado no input 
+            // se item digitado ja existente mostrar uma mensagem pro usuario
+            // caso nao houver, emitir mensagem avisando
+
+        }
+
+    </script>
+</body>
+</html>
