@@ -13,7 +13,7 @@
     <button>
         remover
     </button>
-    <button>
+    <button onclick="procurarNumero()">
         procurar
     </button> <br>
 
@@ -21,13 +21,11 @@
 
     </ul>
 
-
     <script>
         const valorInput = document.getElementById('input')
         const listaValores = document.getElementById('lista')
         
         function adicionarNumero() {
-            debugger
             if(valorInput.value != '') {
                 valorInput.style.borderColor = 'black'
                 const listItem = document.createElement('li')
@@ -45,13 +43,30 @@
         }
 
         function procurarNumero() {
-            const itens = listaValores.children
-            // olhar todos os li que tem dentro da lista - forEach
-            // a cada interação do foreach eu preciso olhar o texto do meu li
-            // e verificar se é igual ao valor digitado no input 
-            // se item digitado ja existente mostrar uma mensagem pro usuario
-            // caso nao houver, emitir mensagem avisando
+            // usei array.from para transformar em um array
+            const itens = Array.from(listaValores.children)
+            // to pegando o valor do input e guardando na variavel numeroProcurado
+            const numeroProcurado = valorInput.value
+            // inicio numeroProcurado como false porque ainda nao sei se tenho
+            // o numero na minha lista, entao deixa como false e se encontrar ele
+            // vai ficar como true
+            let numeroEncontrado = false
 
+            // eu to percorrendo os itens do meu array
+            itens.forEach((item) => {
+                if(item.innerText === numeroProcurado) {
+                    console.log('numero/texto ja existe')
+                    // se cair nessa condição entao o numero ou texto ja existe
+                    // o meu numeroEncontrado que antes era false agora fica true
+                    // fica true porque caiu nessa condição que é verdadeira
+                    numeroEncontrado = true
+                } 
+                    // se o numero encontrado nao for true, ele fica como false
+                    //ele cai nessa condição de que o elemento nao foi encontrado
+                if(!numeroEncontrado) {
+                    console.log('elemento nao encontrado')
+                }
+            })
         }
 
     </script>
